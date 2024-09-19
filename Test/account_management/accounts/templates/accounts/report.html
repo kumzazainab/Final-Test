@@ -1,0 +1,14 @@
+{% extends "accounts/base.html" %}
+
+{% block title %}Reports{% endblock %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'main.css' %}">
+    <h1>Reports</h1>
+    <ul>
+        {% for report in reports %}
+            <li>Generated at: {{ report.generated_at }} - Data: {{ report.data }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,12 @@
+'{% extends "accounts/base.html" %}
+{% block title %}Account Management System{% endblock %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'main.css' %}">
+<h1>Submit Expenses</h1>
+<form method = "POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+</form>
+{% endblock content %}

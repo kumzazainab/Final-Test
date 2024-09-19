@@ -1,0 +1,34 @@
+{% extends "accounts/base.html" %}
+
+{% block title %}Reports{% endblock %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'main.css' %}">
+	<div class="container mt-5">
+		<form class="col-6 mx-auto card p-3 shadow-lg" method="post" enctype="multipart/form-data">
+			<h1 style="text-align: center;"><span style="color: purple;">Welcome to my page</span></h1>
+			{% csrf_token %}
+			<h3>Login</h3>
+			<hr>
+			{% if messages %}
+			<div class="alert alert-primary" role="alert">
+				{% for message in messages %}
+				{{ message }}
+				{% endfor %}
+			</div>
+			{% endif %}
+            <div class="form-group">
+				<label for="exampleInputEmail1">Username</label>
+				<input type="text" class="form-control" name="username" id="exampleInputEmail1" aria-describedby="emailHelp"
+					placeholder="Enter username" required>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputPassword1">Password</label>
+				<input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+			</div>
+			<p>Don't have an account <a href="/register/">Register</a> </p>
+			<button type="submit" class="btn btn-primary"><span style="color: black;"><b>Submit</span><b></button>
+		</form>
+	</div>
+    {% endblock content %}

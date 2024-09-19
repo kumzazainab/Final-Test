@@ -1,0 +1,26 @@
+{% extends "accounts/base.html" %}
+{% block title %}Account Management System{% endblock %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'main.css' %}">
+<h1>Company Account<h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Account name</th>
+                <th>Income</th>
+                <th>Expenses</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for account in accounts%}
+            <tr>
+                <td>{{account.name}}</td>
+                <td>{{account.income}}</td>
+                <td>{{account.expenses}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock content %}
